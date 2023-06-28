@@ -8,6 +8,8 @@ export PATH HOME TERM
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US
 
+export GDK_SCALE=2
+
 export NO_COLOR=1
 export VISUAL=vi
 set -o emacs

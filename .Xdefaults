@@ -1,6 +1,7 @@
 XTerm*loginShell:		true
 XTerm*metaSendsEscape:		true
 XTerm*utf8:			1
+XTerm*reverseVideo:		true
 
 !!!
 #define BG                      #e9e5ca

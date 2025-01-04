@@ -1,5 +1,8 @@
 #!/bin/sh -x
 
+# dear god it's bright in here!
+xbacklight =10
+
 # jcs's cleanup()
 cleanup() {
 	echo "cleaning up"
@@ -25,11 +28,6 @@ if [ -x /usr/local/bin/feh ] ; then
 	feh --bg-fill ~/Pictures/Maple-full.png
 fi
 
-# i like to know when my laptop is gonna die
-#if [ -x /usr/local/bin/xbattmon  ] ; then
-#	xbattmon -t3 -p left &
-#fi
-
 # dbus...lame
 if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
         eval `dbus-launch --sh-syntax --exit-with-x11`
@@ -43,9 +41,25 @@ export QT_SCALE_FACTOR=2
 export MOZ_ACCELERATED=1
 export MOZ_WEBRENDER=1
 
-# love me cwm
-# cwm
-sdorfehs
+# etc.
+export GTK_THEME=Adwaita:dark
+export ENABLE_WASM=1
+
+export XDG_RUNTIME_DIR="/tmp/runtime-$(whoami)"
+if ! test -d "${XDG_RUNTIME_DIR}"; then
+	mkdir "${XDG_RUNTIME_DIR}"
+	chmod 0700 "${XDG_RUNTIME_DIR}"
+fi
+export _NET_NUMBER_OF_DESKTOPS=6
+
+xprop -root -f _NET_NUMBER_OF_DESKTOPS 32c -set _NET_NUMBER_OF_DESKTOPS 6
+
+# visual indicator of pending death
+if [ -x /usr/local/bin/xbattmon  ] ; then
+	xbattmon -t3 -p left &
+fi
+
+cwm
 
 # bye!
 cleanup

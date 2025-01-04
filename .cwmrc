@@ -1,2 +1,12 @@
 fontname "Comic Code"
 gap 0 0 3 0
+
+# unfuck some emacs bindings
+unbind-key M-h
+unbind-key M-j
+unbind-key M-k
+unbind-key M-l
+unbind-key MS-h
+unbind-key MS-j
+unbind-key MS-k
+unbind-key MS-l

@@ -1,6 +1,10 @@
 fontname "Comic Code"
 gap 0 0 3 0
 
+# try alacritty for a bit
+unbind-key CM-Return
+bind-key CM-Return alacritty
+
 # unfuck some emacs bindings
 unbind-key M-h
 unbind-key M-j
